@@ -1,3 +1,5 @@
 #EXTM3U
 #EXTINF:-1,Atv
 https://alba-pe-atv-atv.stream.mediatiquestream.com/live2/alba-pe-atv-atv_240p/chunks.m3u8
+#EXTINF:-1,Gol peru
+https://server.betzta.com/golperu/tracks-v1a1/mono.m3u8?remote=181.176.120.36&token=cd378648b19f6828dc554cc084e5e528863a363c-0054cdd36500b5938fcaea6a5b93de64-1727839940-1727829140
