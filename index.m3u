@@ -1,8 +1,3 @@
 #EXTM3U
-#EXTINF:-1,America
-https://live-evg25.tv360.bitel.com.pe/bitel/americatv/chunks.m3u8?uid=3698217
-#EXTINF:-1, CTC 
-http://live-evg20.tv360.bitel.com.pe/s-ctc-link/tracks-v1a1/mono.m3u8?uid=3698217
-#EXTINF:-1, Latina
-https://live-evg4.tv360.bitel.com.pe/bitel/latina/chunks.m3u8?uid=3698217
-#EXTINF:-1, 
+#EXTINF:-1,Atv
+https://alba-pe-atv-atv.stream.mediatiquestream.com/live2/alba-pe-atv-atv_240p/chunks.m3u8
