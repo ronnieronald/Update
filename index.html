@@ -1,93 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Radio Online</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            text-align: center;
-            padding: 20px;
-        }
-        h1 {
-            color: #333333;
-        }
-        .player {
-            margin: 20px 0;
-        }
-        button {
-            padding: 15px;
-            margin: 10px 0;
-            font-size: 18px;
-            cursor: pointer;
-            width: 100%; /* Ocupa todo el ancho disponible */
-            max-width: 600px; /* Máximo ancho para los botones */
-            height: 60px;
-            display: block;
-            background-color: #00bcd4; /* Color celeste */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
-        }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        text-align: center;
+        padding: 20px;
+      }
+
+      h1 {
+        color: #333333;
+      }
+
+      .player {
+        margin: 20px 0;
+      }
+
+      button {
+        padding: 10px;
+        margin: 10px 0;
+        font-size: 1rem;
+        cursor: pointer;
+        width: 100%;
+        max-width: 600px;
+        height: 60px;
+        display: block;
+        background-color: #00bcd4;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        box-sizing: border-box;
+    
+      }
+
+      .station-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .station-buttons button {
+        flex: 1 1 48%; /* Botones ocuparán el 48% del ancho cada uno */
+      }
+
+      audio {
+        width: 100%;
+        max-width: 600px;
+        height: 40px;
+        margin: 0 auto;
+      }
+
+      /* Opcional: Ajustes menores para dispositivos muy pequeños */
+      @media (max-width: 400px) {
         .station-buttons {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+          gap: 5px; /* Ajusta el espacio entre los botones en pantallas más pequeñas */
         }
-    audio {
-    width: 100%; /* Ajusta al ancho del contenedor */
-    max-width: 600px; /* Establece un ancho máximo */
-    height: 40px; /* Ajusta la altura del reproductor */
-    margin: 0 auto; /* Centra el reproductor horizontalmente */
-}
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Radio Online</h1>
 
     <div class="player">
-        <h2 id="station-name">Selecciona una emisora</h2>
-        <audio id="audio-player" controls>
-            Your browser does not support the audio element.
-        </audio>
+      <h2 id="station-name">Selecciona una emisora</h2>
+      <audio id="audio-player" controls>
+        Your browser does not support the audio element.
+      </audio>
     </div>
 
     <div class="station-buttons">
-        <button onclick="changeStation('Radio DiospiSuyana', 'https://cast2.my-control-panel.com/proxy/diospis1/stream')">Radio DiospiSuyana</button>
-        <button onclick="changeStation('Radio Más Vida', 'https://masvida.radionline.com.es/listen/m%C3%A1s_vida_rock_and_pop/radio.mp3')">Radio Más Vida</button>
-        <button onclick="changeStation('Radio Más Vida Suave', 'https://masvida.radionline.com.es/listen/m%C3%A1s_vida_pop_suave/radio.mp3')">Radio Más Vida Suave</button>
-        <button onclick="changeStation('Radio Más Vida Urbano', 'https://masvida.radionline.com.es/listen/mas_vida_radio/radio.mp3')">Radio Más Vida Urbano</button>
-        <!-- Nueva emisora -->
-        
-<button onclick="changeStation('Radio 777', 'https://stream-162.zeno.fm/xyrde5hmvy8uv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJ4eXJkZTVobXZ5OHV2IiwiaG9zdCI6InN0cmVhbS0xNjIuemVuby5mbSIsInJ0dGwiOjUsImp0aSI6IjZSOGJIZXB1VF9Tb0RSZFZ5T3dGbFEiLCJpYXQiOjE3MjE2OTAzNDksImV4cCI6MTcyMTY5MDQwOX0.aZQPRJ24w4Uvtw8GAKCim1613IKrsQiJglbcb1g4qYs')">Radio 777</button>
-<button onclick="changeStation('Radio Fuzion', 'https://emg.streamguys1.com/fuzion-website')">Radio Funzion</button>
-
-<button onclick="changeStation('Radio Pentecostal', 'https://stream-176.zeno.fm/t2ba9x8efg8uv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJ0MmJhOXg4ZWZnOHV2IiwiaG9zdCI6InN0cmVhbS0xNzYuemVuby5mbSIsInJ0dGwiOjUsImp0aSI6IjMzRjVEQ3FkVEtDSFpMODNaYVp6cnciLCJpYXQiOjE3MjE2Njk0NDgsImV4cCI6MTcyMTY2OTUwOH0.TnTlxhjUi6ThsHXIIA3h6gnJsjTv-IhJRl_N8fC9Mps')">Radio Pentecostal</button>
-
-<button onclick="changeStation('Radio Voz de Vida', 'https://srv6021.dns-lcinternet.com:10191/stream')">Radio Voz de vida</button>
-
-<button onclick="changeStation('Radio Nueva Vida 97.7', 'https://panel.streamenviron.com:8154/stream.mp3')">Radio Nueva Vida 97.7</button>
-
-<button onclick="changeStation('Radio Vida', 'https://radio.transmite.pe/9318/stream')">Radio Vida</button>
-<button onclick="changeStation('Estacion Gozo', 'https://stream-176.zeno.fm/80an41bkaeruv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiI4MGFuNDFia2FlcnV2IiwiaG9zdCI6InN0cmVhbS0xNzYuemVuby5mbSIsInJ0dGwiOjUsImp0aSI6IlhvXzlJYVZ6VHRPREgyWWVyd2p2b1EiLCJpYXQiOjE3MjgxNTk3NzcsImV4cCI6MTcyODE1OTgzN30.5-MzmEBSk4-dRgpSTwzJyjUCJ8XS_xSsh-6wh0FTIwA')">Radio Estación Gozo</button>
-
+      <button
+        onclick="changeStation('Radio DiospiSuyana', 'https://cast2.my-control-panel.com/proxy/diospis1/stream')"
+      >
+        Radio DiospiSuyana
+      </button>
+      <button
+        onclick="changeStation('Radio Más Vida', 'https://masvida.radionline.com.es/listen/m%C3%A1s_vida_rock_and_pop/radio.mp3')"
+      >
+        Radio Más Vida
+      </button>
+      <button
+        onclick="changeStation('Radio Más Vida Suave', 'https://masvida.radionline.com.es/listen/m%C3%A1s_vida_pop_suave/radio.mp3')"
+      >
+        Radio Más Vida Suave
+      </button>
+      <button
+        onclick="changeStation('Radio Más Vida Urbano', 'https://masvida.radionline.com.es/listen/mas_vida_radio/radio.mp3')"
+      >
+        Radio Más Vida Urbano
+      </button>
+      <button
+        onclick="changeStation('Radio 777', 'https://stream-162.zeno.fm/xyrde5hmvy8uv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJ4eXJkZTVobXZ5OHV2IiwiaG9zdCI6InN0cmVhbS0xNjIuemVuby5mbSIsInJ0dGwiOjUsImp0aSI6IjZSOGJIZXB1VF9Tb0RSZFZ5T3dGbFEiLCJpYXQiOjE3MjE2OTAzNDksImV4cCI6MTcyMTY5MDQwOX0.aZQPRJ24w4Uvtw8GAKCim1613IKrsQiJglbcb1g4qYs')"
+      >
+        Radio 777
+      </button>
+      <button
+        onclick="changeStation('Radio Fuzion', 'https://emg.streamguys1.com/fuzion-website')"
+      >
+        Radio Funzion
+      </button>
+      <button
+        onclick="changeStation('Radio Pentecostal', 'https://stream-176.zeno.fm/t2ba9x8efg8uv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJ0MmJhOXg4ZWZnOHV2IiwiaG9zdCI6InN0cmVhbS0xNzYuemVuby5mbSIsInJ0dGwiOjUsImp0aSI6IjMzRjVEQ3FkVEtDSFpMODNaYVp6cnciLCJpYXQiOjE3MjE2Njk0NDgsImV4cCI6MTcyMTY2OTUwOH0.TnTlxhjUi6ThsHXIIA3h6gnJsjTv-IhJRl_N8fC9Mps')"
+      >
+        Radio Pentecostal
+      </button>
+      <button
+        onclick="changeStation('Radio Voz de Vida', 'https://srv6021.dns-lcinternet.com:10191/stream')"
+      >
+        Radio Voz de vida
+      </button>
+      <button
+        onclick="changeStation('Radio Nueva Vida 97.7', 'https://panel.streamenviron.com:8154/stream.mp3')"
+      >
+        Radio Nueva Vida 97.7
+      </button>
+      <button
+        onclick="changeStation('Radio Vida', 'https://radio.transmite.pe/9318/stream')"
+      >
+        Radio Vida
+      </button>
+      <button
+        onclick="changeStation('Estacion Gozo', 'https://stream-176.zeno.fm/80an41bkaeruv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiI4MGFuNDFia2FlcnV2IiwiaG9zdCI6InN0cmVhbS0xNzYuemVuby5mbSIsInJ0dGwiOjUsImp0aSI6IlhvXzlJYVZ6VHRPREgyWWVyd2p2b1EiLCJpYXQiOjE3MjgxNTk3NzcsImV4cCI6MTcyODE1OTgzN30.5-MzmEBSk4-dRgpSTwzJyjUCJ8XS_xSsh-6wh0FTIwA')"
+      >
+        Radio Estación Gozo
+      </button>
     </div>
 
-
     <script>
-        function changeStation(name, url) {
-            var audioPlayer = document.getElementById('audio-player');
-            var stationName = document.getElementById('station-name');
-            audioPlayer.pause(); // Pausar la reproducción actual
-            audioPlayer.src = url; // Cambiar la fuente de audio
-            audioPlayer.load(); // Cargar la nueva fuente
-            audioPlayer.play(); // Reproducir la nueva estación
-            stationName.textContent = name; // Actualizar el nombre de la estación
-        }
+      function changeStation(name, url) {
+        var audioPlayer = document.getElementById("audio-player");
+        var stationName = document.getElementById("station-name");
+        audioPlayer.pause();
+        audioPlayer.src = url;
+        audioPlayer.load();
+        audioPlayer.play();
+        stationName.textContent = name;
+      }
     </script>
-</body>
+  </body>
 </html>
+
